@@ -18,8 +18,9 @@ const Dashboard = () => {
     <div className="dashboard">
       {authenticate && (
         <div className="user_dashboard">
+        
           <img src={localStorage.getItem("profile")} alt="user" />
-          <h1>Name:{localStorage.getItem("name")}</h1>
+          <h1>Welcome back, {localStorage.getItem("name")}!</h1>
           <h1>Email:{localStorage.getItem("email")}</h1>
         </div>
       )}
