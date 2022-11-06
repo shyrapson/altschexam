@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import React from "react";
+
+import ErrorBoundary from "./components/ErrorBoundary";
+
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import UsersContextProvider from "./context/UsersContext";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import Dashboard from "./pages/Dashboard";
+import Sidebar from "./components/Sidebar";
+
+const App = () => {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UsersContextProvider>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard/>}/>
+       
+        
+      </Routes>
+      <Sidebar/>
+      <Footer/>
+    </UsersContextProvider>
   );
-}
+};
 
 export default App;
+
